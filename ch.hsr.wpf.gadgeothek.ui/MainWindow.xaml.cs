@@ -24,6 +24,8 @@ namespace ch.hsr.wpf.gadgeothek.ui
         public List<Gadget> Gadgets { get; set; }
         public MainWindow()
         {
+            var url = System.Configuration.ConfigurationManager.AppSettings["server"];
+
             Gadgets = new List<Gadget>
             {
                 new Gadget("android")
