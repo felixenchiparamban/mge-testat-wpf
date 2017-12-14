@@ -13,7 +13,7 @@
             <Button Content="Delete Gadget"/>
         </StackPanel>
 
-        <DataGrid ItemsSource="{Binding Gadgets}" CanUserSortColumns="True" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid ItemsSource="{Binding Gadgets}" CanUserSortColumns="True" IsReadOnly="True" AutoGenerateColumns="False" SelectedItem="{Binding SelectedGadget}">
             <DataGrid.Resources>
                 <DataTemplate DataType="domain:Gadget"/>
             </DataGrid.Resources>

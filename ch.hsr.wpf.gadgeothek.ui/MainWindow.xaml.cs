@@ -52,6 +52,9 @@ namespace ch.hsr.wpf.gadgeothek.ui
             }
         }
 
+        private Gadget selectedGadget;
+        public Gadget SelectedGadger { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();

@@ -10,30 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ch.hsr.wpf.gadgeothek.ui
 {
     /// <summary>
-    /// Interaction logic for GadgetPanel.xaml
+    /// Interaction logic for DeleteGadget.xaml
     /// </summary>
-    public partial class GadgetPanel : UserControl
+    public partial class DeleteGadget : Window
     {
-        public GadgetPanel()
+        public DeleteGadget()
         {
             InitializeComponent();
         }
-        private void NewGadget_Click(object sender, RoutedEventArgs e)
-        {
-            NewEditGadget window = new NewEditGadget();
-            window.ShowDialog();
-        }
-
-        private void ButtonDeleteGadget_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
-
 }
