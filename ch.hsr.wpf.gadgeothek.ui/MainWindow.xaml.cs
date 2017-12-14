@@ -25,6 +25,7 @@ namespace ch.hsr.wpf.gadgeothek.ui
         private LibraryAdminService Service { get; set; }
 
         private List<Gadget> gadgets;
+
         public List<Gadget> Gadgets
         {
             get
@@ -37,6 +38,20 @@ namespace ch.hsr.wpf.gadgeothek.ui
             }
         }
 
+        private List<Loan> loans;
+
+        public List<Loan> Loans
+        {
+            get
+            {
+                return loans;
+            }
+            set
+            {
+                loans = value;
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -45,8 +60,7 @@ namespace ch.hsr.wpf.gadgeothek.ui
             var url = System.Configuration.ConfigurationManager.AppSettings["serverGadgeothek"];
             Service = new LibraryAdminService(url);
             Gadgets = Service.GetAllGadgets();
+            Loans = Service.GetAllLoans();
         }
-
-
     }
 }

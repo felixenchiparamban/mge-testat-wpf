@@ -13,7 +13,7 @@
                 <local:GadgetPanel></local:GadgetPanel>
             </TabItem>
             <TabItem Header="Loans">
-
+                <local:LoanPanel></local:LoanPanel>
             </TabItem>
         </TabControl>
     </DockPanel>

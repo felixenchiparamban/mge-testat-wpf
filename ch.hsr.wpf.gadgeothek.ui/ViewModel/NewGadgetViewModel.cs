@@ -16,7 +16,6 @@ namespace ch.hsr.wpf.gadgeothek.ui.ViewModel
 
         private LibraryAdminService Service { get; set; }
 
-
         public Gadget Gadget { get; set; } = new Gadget();
 
         public ICommand SaveCommand { get; set; } 
@@ -40,7 +39,6 @@ namespace ch.hsr.wpf.gadgeothek.ui.ViewModel
             {
                 CanClose?.Invoke(this, new EventArgs());
             }
-
         }
 
         public void Cancel()

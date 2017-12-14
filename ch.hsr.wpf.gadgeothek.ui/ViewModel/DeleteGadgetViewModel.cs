@@ -14,6 +14,5 @@ namespace ch.hsr.wpf.gadgeothek.ui.ViewModel
 
         public Gadget Gadget { get; set; } = new Gadget();
 
-
     }
 }

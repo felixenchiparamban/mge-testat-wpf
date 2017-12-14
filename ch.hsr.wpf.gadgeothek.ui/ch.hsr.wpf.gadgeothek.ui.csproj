@@ -58,11 +58,18 @@
     <Compile Include="GadgetPanel.xaml.cs">
       <DependentUpon>GadgetPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoanPanel.xaml.cs">
+      <DependentUpon>LoanPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RelayCommand\RelayCommand.cs" />
     <Compile Include="ViewModel\BindableBase.cs" />
     <Compile Include="ViewModel\DeleteGadgetViewModel.cs" />
     <Compile Include="ViewModel\NewGadgetViewModel.cs" />
     <Page Include="GadgetPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoanPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
