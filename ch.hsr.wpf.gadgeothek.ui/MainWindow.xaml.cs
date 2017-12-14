@@ -1,4 +1,5 @@
 ﻿using ch.hsr.wpf.gadgeothek.domain;
+using ch.hsr.wpf.gadgeothek.service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,19 +22,29 @@ namespace ch.hsr.wpf.gadgeothek.ui
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Gadget> Gadgets { get; set; }
+        private LibraryAdminService Service { get; set; }
+
+        private List<Gadget> gadgets;
+        public List<Gadget> Gadgets
+        {
+            get
+            {
+                return gadgets;
+            }
+            set
+            {
+                gadgets = value;
+            }
+        }
+
         public MainWindow()
         {
-            var url = System.Configuration.ConfigurationManager.AppSettings["server"];
-
-            Gadgets = new List<Gadget>
-            {
-                new Gadget("android")
-            };
-
             InitializeComponent();
-
             DataContext = this;
+
+            var url = System.Configuration.ConfigurationManager.AppSettings["serverGadgeothek"];
+            Service = new LibraryAdminService(url);
+            Gadgets = Service.GetAllGadgets();
         }
 
         private void NewGadget_Click(object sender, RoutedEventArgs e)

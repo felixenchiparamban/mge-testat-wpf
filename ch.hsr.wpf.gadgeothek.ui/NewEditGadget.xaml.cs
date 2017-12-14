@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ch.hsr.wpf.gadgeothek.ui.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,23 @@ namespace ch.hsr.wpf.gadgeothek.ui
     /// </summary>
     public partial class NewEditGadget : Window
     {
+        private NewGadgetViewModel NewGadgetViewModel { get; set; }
+
         public NewEditGadget()
         {
             InitializeComponent();
+            NewGadgetViewModel = new NewGadgetViewModel();
+            DataContext = NewGadgetViewModel;
+        }
+
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
