@@ -55,8 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GadgetPanel.xaml.cs">
+      <DependentUpon>GadgetPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RelayCommand\RelayCommand.cs" />
     <Compile Include="ViewModel\BindableBase.cs" />
+    <Compile Include="ViewModel\DeleteGadgetViewModel.cs" />
     <Compile Include="ViewModel\NewGadgetViewModel.cs" />
+    <Page Include="GadgetPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,7 +119,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Window\" />
+    <Folder Include="UserControll\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

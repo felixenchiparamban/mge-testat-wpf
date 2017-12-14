@@ -47,10 +47,6 @@ namespace ch.hsr.wpf.gadgeothek.ui
             Gadgets = Service.GetAllGadgets();
         }
 
-        private void NewGadget_Click(object sender, RoutedEventArgs e)
-        {
-            NewEditGadget window = new NewEditGadget();
-            window.ShowDialog();
-        }
+
     }
 }
