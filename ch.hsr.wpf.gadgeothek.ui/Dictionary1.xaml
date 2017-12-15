@@ -18,8 +18,32 @@
         <Setter Property="Background" Value="#edc2c2"></Setter>
     </Style>
 
+    <Style x:Key="ok" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="Background" Value="#a2e5ce"></Setter>
+    </Style>
+
     <Style TargetType="TabItem">
         <Setter Property="FontFamily" Value="Segoe UI"></Setter>
         <Setter Property="FontSize" Value="12"></Setter>
+    </Style>
+    
+    <Style TargetType="Label">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter  Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Height" Value="30"></Setter>
+    </Style>
+    
+    <Style TargetType="TextBox">
+        <Setter Property="Margin" Value="0.4,10,9.6,9.8"/>
+    </Style>
+
+    <Style TargetType="TextBlock">
+        <Setter Property="Margin" Value="10.4,10,9.6,9.8"/>
+    </Style>
+
+    <Style TargetType="ComboBox">
+        <Setter Property="Margin" Value="30.4,9.8,0,10.2"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 </ResourceDictionary>

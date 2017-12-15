@@ -15,17 +15,54 @@
                 <x:Type TypeName="gadgeothek:Condition"></x:Type>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        
+        <Style TargetType="Label">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter  Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="30"></Setter>
+        </Style>
+        
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0.4,10,9.6,9.8"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="30.4,9.8,0,10.2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        
+        <Style x:Key="BaseButtonStyle" TargetType="Button">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#d8d8d8"></Setter>
+        </Style>
+
+        <Style x:Key="warning" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+            <Setter Property="Background" Value="#edc2c2"></Setter>
+        </Style>
+
+        <Style x:Key="ok" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+            <Setter Property="Background" Value="#a2e5ce"></Setter>
+        </Style>
+        
     </Window.Resources>
-    
-        <DockPanel>
+
+    <DockPanel>
         <DockPanel DockPanel.Dock="Bottom">
-            <Button DockPanel.Dock="Right" Margin="10, 10" Width="100" Padding="5" Command="{Binding CancelCommand}">Cancel</Button>
-            <Button DockPanel.Dock="Left" Margin="10, 10" Width="100" Padding="5" Command="{Binding SaveCommand}">Save</Button>
+            <Button DockPanel.Dock="Right" 
+                    Margin="10, 10" Width="100" Padding="5" 
+                    Command="{Binding CancelCommand}"
+                    Style="{StaticResource warning}">Cancel</Button>
+            <Button DockPanel.Dock="Left" 
+                    Margin="10, 10" Width="100" 
+                    Padding="5" 
+                    Style="{StaticResource ok}"
+                    Command="{Binding SaveCommand}">Save</Button>
         </DockPanel>
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -36,11 +73,17 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0">InventoryNumber</Label>
-            <TextBox Grid.Row="0" Grid.Column="1" ToolTip="InventoryNumber" Text="{Binding Gadget.InventoryNumber}"></TextBox>
-            
-            <Label Grid.Row="1" Grid.Column="0">Name</Label>
-            <TextBox Grid.Row="1" Grid.Column="1" Name="GadgetName" ToolTip="GadgetName" Text="{Binding Gadget.Name}"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="InventoryNumber"
+                  />
+            <TextBox Grid.Row="0" Grid.Column="1" 
+                     ToolTip="InventoryNumber" 
+                     Text="{Binding Gadget.InventoryNumber}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Name"/>
+            <TextBox Grid.Row="1" Grid.Column="1" 
+                     Name="GadgetName" 
+                     ToolTip="GadgetName"
+                     Text="{Binding Gadget.Name}"/>
 
             <Label Grid.Row="2" Grid.Column="0">Manufacturer</Label>
             <TextBox Grid.Row="2" Grid.Column="1" Name="Manufacturer" ToolTip="Manufacturer" Text="{Binding Gadget.Manufacturer}"/>
@@ -49,9 +92,9 @@
             <TextBox Grid.Row="3" Grid.Column="1" Name="Price" Text="{Binding Gadget.Price}"/>
 
             <Label Grid.Row="4" Grid.Column="0">Condition</Label>
-            <ComboBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="100" SelectedItem="{Binding Gadget.Condition}"
-                      ItemsSource="{Binding Source={StaticResource condition}}">
-            </ComboBox>
+            <ComboBox
+                Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="100" SelectedItem="{Binding Gadget.Condition}"
+                      ItemsSource="{Binding Source={StaticResource condition}}"/>
         </Grid>
     </DockPanel>
 </Window>
