@@ -58,6 +58,9 @@
     <Compile Include="DeleteGadget.xaml.cs">
       <DependentUpon>DeleteGadget.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditGadget.xaml.cs">
+      <DependentUpon>EditGadget.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GadgetPanel.xaml.cs">
       <DependentUpon>GadgetPanel.xaml</DependentUpon>
     </Compile>
@@ -67,9 +70,14 @@
     <Compile Include="RelayCommand\RelayCommand.cs" />
     <Compile Include="ViewModel\BindableBase.cs" />
     <Compile Include="ViewModel\DeleteGadgetViewModel.cs" />
+    <Compile Include="ViewModel\EditGadgetViewModel.cs" />
     <Compile Include="ViewModel\GadgetViewModel.cs" />
     <Compile Include="ViewModel\NewGadgetViewModel.cs" />
     <Page Include="DeleteGadget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditGadget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
