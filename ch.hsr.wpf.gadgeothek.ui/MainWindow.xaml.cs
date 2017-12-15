@@ -22,48 +22,52 @@ namespace ch.hsr.wpf.gadgeothek.ui
     /// </summary>
     public partial class MainWindow : Window
     {
-        private LibraryAdminService Service { get; set; }
+        //private LibraryAdminService Service { get; set; }
 
-        private List<Gadget> gadgets;
+        //private List<Gadget> gadgets;
 
-        public List<Gadget> Gadgets
-        {
-            get
-            {
-                return gadgets;
-            }
-            set
-            {
-                gadgets = value;
-            }
-        }
+        //public List<Gadget> Gadgets
+        //{
+        //    get
+        //    {
+        //        return gadgets;
+        //    }
+        //    set
+        //    {
+        //        gadgets = value;
+        //    }
+        //}
 
-        private List<Loan> loans;
+        //private List<Loan> loans;
 
-        public List<Loan> Loans
-        {
-            get
-            {
-                return loans;
-            }
-            set
-            {
-                loans = value;
-            }
-        }
+        //public List<Loan> Loans
+        //{
+        //    get
+        //    {
+        //        return loans;
+        //    }
+        //    set
+        //    {
+        //        loans = value;
+        //    }
+        //}
 
-        private Gadget selectedGadget;
-        public Gadget SelectedGadger { get; set; }
+        //private Gadget selectedGadget;
+        //public Gadget SelectedGadger { get; set; }
 
+        //public MainWindow()
+        //{
+        //    InitializeComponent();
+        //    DataContext = this;
+
+        //    var url = System.Configuration.ConfigurationManager.AppSettings["serverGadgeothek"];
+        //    Service = new LibraryAdminService(url);
+        //    Gadgets = Service.GetAllGadgets();
+        //    Loans = Service.GetAllLoans();
+        //}
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
-
-            var url = System.Configuration.ConfigurationManager.AppSettings["serverGadgeothek"];
-            Service = new LibraryAdminService(url);
-            Gadgets = Service.GetAllGadgets();
-            Loans = Service.GetAllLoans();
         }
     }
 }

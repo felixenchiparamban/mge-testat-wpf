@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ch.hsr.wpf.gadgeothek.domain;
+using ch.hsr.wpf.gadgeothek.ui.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,13 @@ namespace ch.hsr.wpf.gadgeothek.ui
     /// </summary>
     public partial class DeleteGadget : Window
     {
-        public DeleteGadget()
+        public DeleteGadget(Gadget gadget)
         {
+            DeleteGadgetViewModel deleteGadgetViewModel = new DeleteGadgetViewModel(gadget);
             InitializeComponent();
+            DataContext = deleteGadgetViewModel;
+
+            deleteGadgetViewModel.CanClose += (o, a) => this.Close();
         }
     }
 }

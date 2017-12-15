@@ -16,6 +16,7 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
     </Window.Resources>
+    
         <DockPanel>
         <DockPanel DockPanel.Dock="Bottom">
             <Button DockPanel.Dock="Right" Margin="10, 10" Width="100" Padding="5" Command="{Binding CancelCommand}">Cancel</Button>

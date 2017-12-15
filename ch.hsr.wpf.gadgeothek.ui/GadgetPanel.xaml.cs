@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ch.hsr.wpf.gadgeothek.ui.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,17 +24,12 @@ namespace ch.hsr.wpf.gadgeothek.ui
         public GadgetPanel()
         {
             InitializeComponent();
+            DataContext = new GadgetViewModel();
         }
         private void NewGadget_Click(object sender, RoutedEventArgs e)
         {
             NewEditGadget window = new NewEditGadget();
             window.ShowDialog();
         }
-
-        private void ButtonDeleteGadget_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
-
 }

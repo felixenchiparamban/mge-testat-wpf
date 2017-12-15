@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ch.hsr.wpf.gadgeothek.ui.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace ch.hsr.wpf.gadgeothek.ui
         public LoanPanel()
         {
             InitializeComponent();
+            DataContext = new GadgetViewModel();
         }
     }
 }

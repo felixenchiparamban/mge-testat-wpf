@@ -13,34 +13,42 @@ namespace ch.hsr.wpf.gadgeothek.ui.ViewModel
 {
     class DeleteGadgetViewModel : BindableBase
     {
+        public event EventHandler CanClose;
+
         private LibraryAdminService Service { get; set; }
 
         public Gadget Gadget { get; set; } = new Gadget();
 
         public ICommand ConfirmDeleteGadgetCommand { get; set; }
-
         public ICommand CancelDeleteGadgetCommand { get; set; }
 
-        public DeleteGadgetViewModel()
+        public DeleteGadgetViewModel(Gadget gadgetToDelete)
         {
             var url = System.Configuration.ConfigurationManager.AppSettings["serverGadgeothek"];
             Service = new LibraryAdminService(url);
 
+            Gadget = gadgetToDelete;
+
             ConfirmDeleteGadgetCommand = new RelayCommand<Object>((o) => ConfirmDeleteGadget());
-            CancelDeleteGadgetCommand = new RelayCommand<Window>((o) => CancelDeleteGadget(o));
+            CancelDeleteGadgetCommand = new RelayCommand<Object>((o) => CancelDeleteGadget());
         }
         
         public void ConfirmDeleteGadget()
         {
             if (!Service.DeleteGadget(Gadget))
             {
-                MessageBox.Show("Error while deleting the Gadget.");
+                MessageBox.Show("Error while deleting the Gadget. Please try later");
             }
+            else
+            {
+                MessageBox.Show("Deleted Successfully");
+            }
+            CanClose?.Invoke(this, new EventArgs());
         }
 
-        public void CancelDeleteGadget(Window window)
+        public void CancelDeleteGadget()
         {
-            window.Close();
+            CanClose?.Invoke(this, new EventArgs());
         }
     }
 }
