@@ -5,13 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ch.hsr.wpf.gadgeothek.ui"
              xmlns:domain="clr-namespace:ch.hsr.wpf.gadgeothek.domain;assembly=ch.hsr.wpf.gadgeothek"
+             xmlns:mainWindow="clr-namespace:ch.hsr.wpf.gadgeothek.ui"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="400">
+    <Control.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Control.Resources>
     <DockPanel>
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="5">
             <Button Content="New Gadget" Click="NewGadget_Click"/>
-            <Button Content="Edit Gadget" Command="{Binding EditGadgetCommand}"/>
-            <Button Content="Delete Gadget" Command="{Binding DeleteGadgetCommand}"/>
+            <Button Content="Edit Gadget" Command="{Binding EditGadgetCommand}" />
+            <Button Content="Delete Gadget" Command="{Binding DeleteGadgetCommand}" Style="{StaticResource warning}"/>
         </StackPanel>
 
         <DataGrid ItemsSource="{Binding Gadgets}" CanUserSortColumns="True" IsReadOnly="True" AutoGenerateColumns="False" SelectedItem="{Binding SelectedGadget}">
@@ -21,11 +29,11 @@
             </DataGrid.Resources>
             
             <DataGrid.Columns>
-                <DataGridTextColumn Header="InventoryNumber" Binding="{Binding InventoryNumber}"/>
-                <DataGridTextColumn Header="Name" Width="2*" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Manufacturer" Width="2*" Binding="{Binding Manufacturer}"/>
-                <DataGridTextColumn Header="Price" Width="1*" Binding="{Binding Price}"/>
-                <DataGridTextColumn Header="Condition" Width="1*" Binding="{Binding Condition}"/>
+                <DataGridTextColumn Header="InventoryNumber" Binding="{Binding InventoryNumber}" FontFamily="Segoe UI"/>
+                <DataGridTextColumn Header="Name" Width="2*" Binding="{Binding Name}" FontFamily="Segoe UI"/>
+                <DataGridTextColumn Header="Manufacturer" Width="2*" Binding="{Binding Manufacturer}" FontFamily="Segoe UI"/>
+                <DataGridTextColumn Header="Price" Width="1*" Binding="{Binding Price}" FontFamily="Segoe UI"/>
+                <DataGridTextColumn Header="Condition" Width="2*" Binding="{Binding Condition}" FontFamily="Segoe UI"/>
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>

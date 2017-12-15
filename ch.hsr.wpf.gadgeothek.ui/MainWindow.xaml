@@ -7,6 +7,13 @@
         xmlns:domain="clr-namespace:ch.hsr.wpf.gadgeothek.domain;assembly=ch.hsr.wpf.gadgeothek"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <DockPanel>
         <TabControl VerticalAlignment="Stretch">
             <TabItem Header="Gadgets">
