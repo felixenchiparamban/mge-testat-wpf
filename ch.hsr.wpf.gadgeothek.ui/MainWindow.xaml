@@ -10,25 +10,10 @@
     <DockPanel>
         <TabControl VerticalAlignment="Stretch">
             <TabItem Header="Gadgets">
-                <DockPanel>
-                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
-                        <Button x:Name="NewGadget" Content="New Gadget" Click="NewGadget_Click"/>
-                        <Button Content="Edit Gadget"/>
-                        <Button Content="Delete Gadget"/>
-                    </StackPanel>
-
-                    <DataGrid ItemsSource="{Binding Gadgets}" CanUserSortColumns="True">
-                        <DataGrid.Resources>
-                            <DataTemplate DataType="domain:Gadget"/>
-                        </DataGrid.Resources>
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding InventoryNumber}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </DockPanel>
+                <local:GadgetPanel></local:GadgetPanel>
             </TabItem>
             <TabItem Header="Loans">
-
+                <local:LoanPanel></local:LoanPanel>
             </TabItem>
         </TabControl>
     </DockPanel>

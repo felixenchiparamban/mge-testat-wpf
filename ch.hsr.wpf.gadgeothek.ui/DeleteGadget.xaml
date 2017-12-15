@@ -1,0 +1,55 @@
+﻿<Window x:Class="ch.hsr.wpf.gadgeothek.ui.DeleteGadget"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ch.hsr.wpf.gadgeothek.ui"
+        mc:Ignorable="d"
+        Title="DeleteGadget" Height="300" Width="300">
+    
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <Button DockPanel.Dock="Right" 
+                    Margin="10, 10" 
+                    Width="100" 
+                    Padding="5"
+                    Command="{Binding ConfirmDeleteGadgetCommand}"
+                    Content="Confirm"/>
+            <Button DockPanel.Dock="Left"
+                    Margin="10, 10"
+                    Width="100"
+                    Padding="5"
+                    Command="{Binding CancelDeleteGadgetCommand}"
+                    Content="Canel"/>
+        </DockPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0">InventoryNumber</Label>
+            <TextBlock Grid.Row="0" Grid.Column="1" ToolTip="InventoryNumber" Text="{Binding Gadget.InventoryNumber}"></TextBlock>
+
+            <Label Grid.Row="1" Grid.Column="0">Name</Label>
+            <TextBlock Grid.Row="1" Grid.Column="1" ToolTip="GadgetName" Text="{Binding Gadget.Name}"/>
+
+            <Label Grid.Row="2" Grid.Column="0">Manufacturer</Label>
+            <TextBlock Grid.Row="2" Grid.Column="1" ToolTip="Manufacturer" Text="{Binding Gadget.Manufacturer}"/>
+
+            <Label Grid.Row="3" Grid.Column="0">Price</Label>
+            <TextBlock Grid.Row="3" Grid.Column="1" ToolTip="Price" Text="{Binding Gadget.Price}"/>
+
+            <Label Grid.Row="4" Grid.Column="0">Condition</Label>
+            <TextBlock Grid.Row="4" Grid.Column="1" ToolTip="Condition" Text="{Binding Gadget.Condition}"/>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -11,24 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ch.hsr.wpf.gadgeothek.ui
 {
     /// <summary>
-    /// Interaction logic for NewEditGadget.xaml
+    /// Interaction logic for LoanPanel.xaml
     /// </summary>
-    public partial class NewEditGadget : Window
+    public partial class LoanPanel : UserControl
     {
-        private NewGadgetViewModel NewGadgetViewModel { get; set; }
-
-        public NewEditGadget()
+        public LoanPanel()
         {
             InitializeComponent();
-            NewGadgetViewModel = new NewGadgetViewModel();
-            DataContext = NewGadgetViewModel;
-
-            NewGadgetViewModel.CanClose += (o, a) => this.Close();
+            DataContext = new GadgetViewModel();
         }
     }
 }

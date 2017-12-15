@@ -1,4 +1,5 @@
 ﻿using ch.hsr.wpf.gadgeothek.domain;
+using ch.hsr.wpf.gadgeothek.service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,25 +22,52 @@ namespace ch.hsr.wpf.gadgeothek.ui
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Gadget> Gadgets { get; set; }
+        //private LibraryAdminService Service { get; set; }
+
+        //private List<Gadget> gadgets;
+
+        //public List<Gadget> Gadgets
+        //{
+        //    get
+        //    {
+        //        return gadgets;
+        //    }
+        //    set
+        //    {
+        //        gadgets = value;
+        //    }
+        //}
+
+        //private List<Loan> loans;
+
+        //public List<Loan> Loans
+        //{
+        //    get
+        //    {
+        //        return loans;
+        //    }
+        //    set
+        //    {
+        //        loans = value;
+        //    }
+        //}
+
+        //private Gadget selectedGadget;
+        //public Gadget SelectedGadger { get; set; }
+
+        //public MainWindow()
+        //{
+        //    InitializeComponent();
+        //    DataContext = this;
+
+        //    var url = System.Configuration.ConfigurationManager.AppSettings["serverGadgeothek"];
+        //    Service = new LibraryAdminService(url);
+        //    Gadgets = Service.GetAllGadgets();
+        //    Loans = Service.GetAllLoans();
+        //}
         public MainWindow()
         {
-            var url = System.Configuration.ConfigurationManager.AppSettings["server"];
-
-            Gadgets = new List<Gadget>
-            {
-                new Gadget("android")
-            };
-
             InitializeComponent();
-
-            DataContext = this;
-        }
-
-        private void NewGadget_Click(object sender, RoutedEventArgs e)
-        {
-            NewEditGadget window = new NewEditGadget();
-            window.ShowDialog();
         }
     }
 }
