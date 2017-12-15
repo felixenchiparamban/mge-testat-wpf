@@ -1,4 +1,4 @@
-﻿<Window x:Class="ch.hsr.wpf.gadgeothek.ui.NewEditGadget"
+﻿<Window x:Class="ch.hsr.wpf.gadgeothek.ui.EditGadget"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,15 +7,14 @@
         xmlns:local="clr-namespace:ch.hsr.wpf.gadgeothek.ui"
         xmlns:gadgeothek="clr-namespace:ch.hsr.wpf.gadgeothek.domain;assembly=ch.hsr.wpf.gadgeothek"
         mc:Ignorable="d"
-        Title="NewEditGadget" Height="300" Width="300">
-
+        Title="EditGadget" Height="300" Width="300">
     <Window.Resources>
         <ObjectDataProvider x:Key="condition" ObjectType="{x:Type sys:Enum}" MethodName="GetValues">
             <ObjectDataProvider.MethodParameters>
                 <x:Type TypeName="gadgeothek:Condition"></x:Type>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
-        
+
         <Style TargetType="Label">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter  Property="VerticalContentAlignment" Value="Center"/>
@@ -25,6 +24,7 @@
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="0.4,10,9.6,9.8"/>
         </Style>
+        
         <Style TargetType="ComboBox">
             <Setter Property="Margin" Value="30.4,9.8,0,10.2"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -50,19 +50,20 @@
     <DockPanel>
         <DockPanel DockPanel.Dock="Bottom">
             <Button DockPanel.Dock="Right" 
-                    Margin="10, 10" Width="100" Padding="5" 
-                    Command="{Binding CancelCommand}"
+                    Margin="10, 10" Width="100" 
+                    Padding="5" 
+                    Command="{Binding CancelEditCommand}"
                     Style="{StaticResource warning}">Cancel</Button>
             <Button DockPanel.Dock="Left" 
                     Margin="10, 10" Width="100" 
                     Padding="5" 
-                    Style="{StaticResource ok}"
-                    Command="{Binding SaveCommand}">Save</Button>
+                    Command="{Binding ConfirmEditCommand}"
+                    Style="{StaticResource ok}">Save</Button>
         </DockPanel>
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -73,28 +74,22 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="InventoryNumber"
-                  />
-            <TextBox Grid.Row="0" Grid.Column="1" 
-                     ToolTip="InventoryNumber" 
-                     Text="{Binding Gadget.InventoryNumber}"/>
+            <Label Grid.Row="0" Grid.Column="0">InventoryNumber</Label>
+            <TextBox Grid.Row="0" Grid.Column="1" ToolTip="InventoryNumber" Text="{Binding EditGadget.InventoryNumber}"></TextBox>
 
-            <Label Grid.Row="1" Grid.Column="0" Content="Name"/>
-            <TextBox Grid.Row="1" Grid.Column="1" 
-                     Name="GadgetName" 
-                     ToolTip="GadgetName"
-                     Text="{Binding Gadget.Name}"/>
+            <Label Grid.Row="1" Grid.Column="0">Name</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="GadgetName" ToolTip="GadgetName" Text="{Binding EditGadget.Name}"/>
 
             <Label Grid.Row="2" Grid.Column="0">Manufacturer</Label>
-            <TextBox Grid.Row="2" Grid.Column="1" Name="Manufacturer" ToolTip="Manufacturer" Text="{Binding Gadget.Manufacturer}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="Manufacturer" ToolTip="Manufacturer" Text="{Binding EditGadget.Manufacturer}"/>
 
             <Label Grid.Row="3" Grid.Column="0">Price</Label>
-            <TextBox Grid.Row="3" Grid.Column="1" Name="Price" Text="{Binding Gadget.Price}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="Price" Text="{Binding EditGadget.Price}"/>
 
             <Label Grid.Row="4" Grid.Column="0">Condition</Label>
-            <ComboBox
-                Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="100" SelectedItem="{Binding Gadget.Condition}"
-                      ItemsSource="{Binding Source={StaticResource condition}}"/>
+            <ComboBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="100" SelectedItem="{Binding EditGadget.Condition}"
+                      ItemsSource="{Binding Source={StaticResource condition}}">
+            </ComboBox>
         </Grid>
     </DockPanel>
 </Window>
