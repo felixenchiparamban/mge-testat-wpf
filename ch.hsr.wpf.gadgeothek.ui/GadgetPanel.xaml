@@ -15,9 +15,12 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Control.Resources>
+    
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="5">
-            <Button Content="New Gadget" Click="NewGadget_Click"/>
+            <Button Click="NewGadget_Click">
+                <Image Source="add.png" Height="20" Width="20"></Image>
+            </Button>
             <Button Content="Edit Gadget" Command="{Binding EditGadgetCommand}" />
             <Button Content="Delete Gadget" Command="{Binding DeleteGadgetCommand}" Style="{StaticResource warning}"/>
         </StackPanel>
