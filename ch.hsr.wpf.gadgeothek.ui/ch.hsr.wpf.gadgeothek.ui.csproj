@@ -146,7 +146,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="add.png" />
+    <Resource Include="image\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dictionary\" />
+    <Folder Include="UserControll\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

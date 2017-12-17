@@ -19,13 +19,17 @@
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="5">
             <Button Click="NewGadget_Click">
-                <Image Source="add.png" Height="20" Width="20"></Image>
+                <Image Source="image/add.png" Height="20" Width="20"></Image>
             </Button>
-            <Button Content="Edit Gadget" Command="{Binding EditGadgetCommand}" />
-            <Button Content="Delete Gadget" Command="{Binding DeleteGadgetCommand}" Style="{StaticResource warning}"/>
+            <Button Command="{Binding EditGadgetCommand}">
+                <Image Source="image/edit.png" Height="20" Width="20"></Image>
+            </Button>
+            <Button Command="{Binding DeleteGadgetCommand}">
+                <Image Source="image/delete.png" Height="20" Width="20"></Image>
+            </Button>
         </StackPanel>
 
-        <DataGrid ItemsSource="{Binding Gadgets}" CanUserSortColumns="True" IsReadOnly="True" AutoGenerateColumns="False" SelectedItem="{Binding SelectedGadget}">
+        <DataGrid Name="GadgetView" ItemsSource="{Binding Gadgets, UpdateSourceTrigger=PropertyChanged}" CanUserSortColumns="True" IsReadOnly="True" AutoGenerateColumns="False" SelectedItem="{Binding SelectedGadget}">
             
             <DataGrid.Resources>
                 <DataTemplate DataType="domain:Gadget"/>

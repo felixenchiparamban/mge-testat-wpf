@@ -5,6 +5,7 @@
     <Style TargetType="Button">
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="Margin" Value="5"/>
+        <Setter Property="Height" Value="29"></Setter>
         <Setter Property="Background" Value="#d8d8d8"></Setter>
     </Style>
 
