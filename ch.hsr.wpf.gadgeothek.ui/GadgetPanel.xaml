@@ -29,7 +29,7 @@
             </Button>
         </StackPanel>
 
-        <DataGrid Name="GadgetView" ItemsSource="{Binding Gadgets, UpdateSourceTrigger=PropertyChanged}" CanUserSortColumns="True" IsReadOnly="True" AutoGenerateColumns="False" SelectedItem="{Binding SelectedGadget}">
+        <DataGrid Name="GadgetView" ItemsSource="{Binding Gadgets}" CanUserSortColumns="True" IsReadOnly="True" AutoGenerateColumns="False" SelectedItem="{Binding SelectedGadget}">
             
             <DataGrid.Resources>
                 <DataTemplate DataType="domain:Gadget"/>
