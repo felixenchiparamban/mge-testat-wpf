@@ -8,43 +8,18 @@
         xmlns:gadgeothek="clr-namespace:ch.hsr.wpf.gadgeothek.domain;assembly=ch.hsr.wpf.gadgeothek"
         mc:Ignorable="d"
         Title="EditGadget" Height="300" Width="300">
+    
     <Window.Resources>
-        <ObjectDataProvider x:Key="condition" ObjectType="{x:Type sys:Enum}" MethodName="GetValues">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="gadgeothek:Condition"></x:Type>
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-
-        <Style TargetType="Label">
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter  Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Height" Value="30"></Setter>
-        </Style>
-        
-        <Style TargetType="TextBox">
-            <Setter Property="Margin" Value="0.4,10,9.6,9.8"/>
-        </Style>
-        
-        <Style TargetType="ComboBox">
-            <Setter Property="Margin" Value="30.4,9.8,0,10.2"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-        </Style>
-        
-        <Style x:Key="BaseButtonStyle" TargetType="Button">
-            <Setter Property="FontFamily" Value="Segoe UI"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Background" Value="#d8d8d8"></Setter>
-        </Style>
-
-        <Style x:Key="warning" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
-            <Setter Property="Background" Value="#edc2c2"></Setter>
-        </Style>
-
-        <Style x:Key="ok" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
-            <Setter Property="Background" Value="#a2e5ce"></Setter>
-        </Style>
-        
+        <ResourceDictionary>
+            <ObjectDataProvider x:Key="condition" ObjectType="{x:Type sys:Enum}" MethodName="GetValues">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="gadgeothek:Condition"></x:Type>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
 
     <DockPanel>

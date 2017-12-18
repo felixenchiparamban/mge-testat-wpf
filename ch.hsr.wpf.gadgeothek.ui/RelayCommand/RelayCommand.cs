@@ -9,8 +9,6 @@ namespace ch.hsr.wpf.gadgeothek.ui.RelayCommand
 {
     class RelayCommand<T> : ICommand
     {
-        public event EventHandler CanExecuteChanged;
-
         private readonly Action<T> _execute;
         private readonly Predicate<T> _canExecute;
 
@@ -26,5 +24,11 @@ namespace ch.hsr.wpf.gadgeothek.ui.RelayCommand
 
         public bool CanExecute(object parameter) => _canExecute?.Invoke((T)parameter) ?? true;
         public void Execute(object parameter) => _execute((T)parameter);
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
     }
 }

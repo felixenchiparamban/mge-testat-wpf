@@ -31,7 +31,7 @@
                     Padding="5"
                     Command="{Binding CancelDeleteGadgetCommand}"
                     Style="{StaticResource warning}"
-                    Content="Canel"/>
+                    Content="Cancel"/>
         </DockPanel>
 
         <Grid>

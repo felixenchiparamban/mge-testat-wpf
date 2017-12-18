@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Timers;
 using System.Collections.ObjectModel;
+using System.Windows.Threading;
 
 namespace ch.hsr.wpf.gadgeothek.ui.ViewModel
 {
@@ -16,8 +17,32 @@ namespace ch.hsr.wpf.gadgeothek.ui.ViewModel
     {
         private LibraryAdminService Service { get; set; }
 
-        public List<Gadget> Gadgets { get; set; }
-        public List<Loan> Loans { get; set; }
+        private List<Gadget> gadgets;
+
+        public List<Gadget> Gadgets
+        {
+            get
+            {
+                return gadgets;
+            }
+            set
+            {
+                SetProperty(ref gadgets, value);
+            }
+        }
+
+        private List<Loan> loans;
+        public List<Loan> Loans
+        {
+            get
+            {
+                return loans;
+            }
+            set
+            {
+                SetProperty(ref loans, value);
+            }
+        }
 
         public Gadget SelectedGadget { get; set; }
 
@@ -37,10 +62,11 @@ namespace ch.hsr.wpf.gadgeothek.ui.ViewModel
             EditGadgetCommand = new RelayCommand.RelayCommand<Object>((o) => EditGadget());
             DeleteGadgetCommand = new RelayCommand.RelayCommand<Object>((o) => DeleteGadget());
 
-            aTimer = new System.Timers.Timer(10000);
-            aTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnTimerEvent);
-            aTimer.Interval = 2000;
+            aTimer = new System.Timers.Timer();
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimerEvent);
+            aTimer.Interval = 5000;
             aTimer.Enabled = true;
+            aTimer.Start();
         }
 
         public void EditGadget()
@@ -71,8 +97,14 @@ namespace ch.hsr.wpf.gadgeothek.ui.ViewModel
 
         private void OnTimerEvent(object sender, ElapsedEventArgs e)
         {
-            Gadgets = Service.GetAllGadgets();
-            Loans = Service.GetAllLoans();
+            Dispatcher.CurrentDispatcher.Invoke(() => {
+                Gadgets = new List<Gadget>();
+                Gadgets = Service.GetAllGadgets();
+
+                Loans = new List<Loan>();
+                Loans = Service.GetAllLoans();
+
+            });
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ch.hsr.wpf.gadgeothek.ui.ViewModel
     class EditGadgetViewModel
     {
         public event EventHandler CanClose;
-
+        
         private LibraryAdminService Service { get; set; }
 
         public Gadget EditGadget { get; set; } = new Gadget();
